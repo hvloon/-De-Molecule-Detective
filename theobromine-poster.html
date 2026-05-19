@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Theobromine – Synthese via methylering van xanthine</title>
+<style>
+  @page {
+    size: A2 portrait;
+    margin: 0;
+  }
+  :root {
+    --ink: #1a1a1a;
+    --paper: #fbf8f3;
+    --accent: #6b2d18;
+    --accent-light: #c8956d;
+    --soft: #efe7d8;
+    --line: #2a2a2a;
+    --highlight: #e8d4a8;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #333;
+    font-family: "Georgia", "Times New Roman", serif;
+    color: var(--ink);
+  }
+  .poster {
+    width: 420mm;
+    min-height: 594mm;
+    margin: 20px auto;
+    background: var(--paper);
+    padding: 18mm 16mm;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    position: relative;
+  }
+  @media print {
+    body { background: white; }
+    .poster { margin: 0; box-shadow: none; width: 100%; min-height: 100vh; }
+  }
+
+  header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 8mm;
+    margin-bottom: 8mm;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10mm;
+    align-items: end;
+  }
+  h1 {
+    font-size: 56pt;
+    line-height: 1;
+    margin: 0;
+    color: var(--accent);
+    letter-spacing: -1px;
+  }
+  .subtitle {
+    font-size: 18pt;
+    color: var(--line);
+    margin-top: 4mm;
+    font-style: italic;
+  }
+  .meta {
+    font-size: 10pt;
+    text-align: right;
+    color: #555;
+    line-height: 1.5;
+  }
+  .meta strong { color: var(--ink); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+  }
+
+  section {
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+    padding: 6mm 7mm;
+    border-radius: 0 4px 4px 0;
+    page-break-inside: avoid;
+  }
+  section h2 {
+    margin: 0 0 4mm 0;
+    font-size: 18pt;
+    color: var(--accent);
+    border-bottom: 1px dashed var(--accent-light);
+    padding-bottom: 2mm;
+  }
+  section p, section li {
+    font-size: 10.5pt;
+    line-height: 1.5;
+    margin: 0 0 3mm 0;
+  }
+  section ul, section ol {
+    margin: 0 0 3mm 0;
+    padding-left: 5mm;
+  }
+  section li { margin-bottom: 2mm; }
+
+  .full { grid-column: 1 / -1; }
+
+  .term {
+    background: var(--highlight);
+    padding: 0 3px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+
+  .step {
+    background: white;
+    border: 1px solid var(--accent-light);
+    padding: 4mm 5mm;
+    margin-bottom: 4mm;
+    border-radius: 4px;
+  }
+  .step h3 {
+    margin: 0 0 2mm 0;
+    font-size: 12pt;
+    color: var(--accent);
+  }
+  .step-label {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 1mm 3mm;
+    border-radius: 3px;
+    font-size: 9pt;
+    margin-right: 3mm;
+    vertical-align: middle;
+  }
+
+  .svg-wrap {
+    background: white;
+    border: 1px solid var(--accent-light);
+    border-radius: 4px;
+    padding: 4mm;
+    margin: 3mm 0;
+    text-align: center;
+  }
+  .svg-caption {
+    font-size: 9pt;
+    color: #555;
+    font-style: italic;
+    margin-top: 2mm;
+  }
+
+  .pitfall {
+    background: #fff3e8;
+    border-left: 3px solid #c0392b;
+    padding: 3mm 5mm;
+    margin-bottom: 3mm;
+  }
+  .pitfall strong { color: #c0392b; }
+
+  footer {
+    margin-top: 8mm;
+    padding-top: 4mm;
+    border-top: 2px solid var(--accent);
+    display: flex;
+    justify-content: space-between;
+    font-size: 9pt;
+    color: #555;
+  }
+
+  .formula {
+    font-family: "Cambria Math", "Times New Roman", serif;
+    font-style: italic;
+  }
+  sub, sup { font-size: 0.75em; }
+
+  .legend-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3mm;
+    font-size: 10pt;
+    margin-bottom: 2mm;
+  }
+  .legend-row .key {
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <header>
+    <div>
+      <h1>Theobromine</h1>
+      <div class="subtitle">Synthese via methylering van xanthine — een polaire S<sub>N</sub>2-reactie</div>
+    </div>
+    <div class="meta">
+      <strong>Posteropdracht scheikunde</strong><br>
+      VWO — purine-alkaloïde uit cacao<br>
+      Naam: ____________________<br>
+      Klas / datum: ____________________
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- INTRO -->
+    <section class="full">
+      <h2>Wat is theobromine?</h2>
+      <p>
+        Theobromine is een <span class="term">purine-alkaloïde</span> die van nature voorkomt in cacaobonen (<em>Theobroma cacao</em>). Chemisch is het
+        <strong>3,7-dimethylxanthine</strong>: een xanthine-skelet met methylgroepen op stikstofatomen N3 en N7. Het verschil met cafeïne (1,3,7-trimethylxanthine) is één
+        extra methylgroep op N1. In dit project bekijken we hoe je theobromine in het laboratorium kunt maken door <strong>xanthine te methyleren</strong> met methyljodide (CH<sub>3</sub>I)
+        in basisch milieu.
+      </p>
+
+      <div class="svg-wrap">
+        <svg viewBox="0 0 760 180" width="100%" style="max-width: 720px;">
+          <!-- Xanthine -->
+          <g transform="translate(40,30)">
+            <text x="90" y="-8" font-size="14" font-weight="bold" fill="#6b2d18" text-anchor="middle">Xanthine</text>
+            <!-- 6-ring -->
+            <polygon points="20,30 60,10 100,30 100,75 60,95 20,75" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+            <!-- 5-ring fused -->
+            <polygon points="100,30 140,15 165,52 140,90 100,75" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+            <!-- Atom labels -->
+            <text x="12" y="34" font-size="11" text-anchor="middle">HN</text>
+            <text x="60" y="6" font-size="11" text-anchor="middle">O</text>
+            <text x="108" y="22" font-size="11" text-anchor="middle">N</text>
+            <text x="108" y="83" font-size="11" text-anchor="middle">N</text>
+            <text x="60" y="106" font-size="11" text-anchor="middle">NH</text>
+            <text x="12" y="80" font-size="11" text-anchor="middle">O</text>
+            <text x="148" y="14" font-size="11" text-anchor="middle">HN</text>
+            <text x="148" y="98" font-size="11" text-anchor="middle">N</text>
+            <!-- C=O bonds -->
+            <line x1="60" y1="14" x2="60" y2="2" stroke="#1a1a1a" stroke-width="1.5"/>
+            <line x1="20" y1="75" x2="10" y2="82" stroke="#1a1a1a" stroke-width="1.5"/>
+            <line x1="20" y1="75" x2="10" y2="78" stroke="#1a1a1a" stroke-width="1.5"/>
+            <!-- Position labels -->
+            <text x="0" y="50" font-size="9" fill="#6b2d18" font-weight="bold">1</text>
+            <text x="60" y="115" font-size="9" fill="#6b2d18" font-weight="bold">3</text>
+            <text x="170" y="98" font-size="9" fill="#6b2d18" font-weight="bold">9</text>
+            <text x="170" y="14" font-size="9" fill="#6b2d18" font-weight="bold">7</text>
+          </g>
+
+          <!-- Arrow -->
+          <g transform="translate(270,80)">
+            <line x1="0" y1="0" x2="100" y2="0" stroke="#6b2d18" stroke-width="2"/>
+            <polygon points="100,-5 110,0 100,5" fill="#6b2d18"/>
+            <text x="50" y="-10" font-size="11" text-anchor="middle" fill="#6b2d18">2 × CH<tspan font-size="8" baseline-shift="sub">3</tspan>I</text>
+            <text x="50" y="18" font-size="10" text-anchor="middle" fill="#6b2d18">base</text>
+          </g>
+
+          <!-- Theobromine -->
+          <g transform="translate(440,30)">
+            <text x="90" y="-8" font-size="14" font-weight="bold" fill="#6b2d18" text-anchor="middle">Theobromine</text>
+            <polygon points="20,30 60,10 100,30 100,75 60,95 20,75" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+            <polygon points="100,30 140,15 165,52 140,90 100,75" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+            <text x="12" y="34" font-size="11" text-anchor="middle">HN</text>
+            <text x="60" y="6" font-size="11" text-anchor="middle">O</text>
+            <text x="108" y="22" font-size="11" text-anchor="middle">N</text>
+            <text x="108" y="83" font-size="11" text-anchor="middle">N</text>
+            <text x="60" y="115" font-size="11" text-anchor="middle" fill="#6b2d18" font-weight="bold">N–CH₃</text>
+            <text x="12" y="80" font-size="11" text-anchor="middle">O</text>
+            <text x="170" y="14" font-size="11" text-anchor="middle" fill="#6b2d18" font-weight="bold">N–CH₃</text>
+            <text x="148" y="98" font-size="11" text-anchor="middle">N</text>
+            <line x1="60" y1="14" x2="60" y2="2" stroke="#1a1a1a" stroke-width="1.5"/>
+            <line x1="20" y1="75" x2="10" y2="82" stroke="#1a1a1a" stroke-width="1.5"/>
+            <line x1="20" y1="75" x2="10" y2="78" stroke="#1a1a1a" stroke-width="1.5"/>
+            <text x="0" y="50" font-size="9" fill="#6b2d18" font-weight="bold">1</text>
+            <text x="60" y="128" font-size="9" fill="#6b2d18" font-weight="bold">3</text>
+            <text x="170" y="28" font-size="9" fill="#6b2d18" font-weight="bold">7</text>
+          </g>
+        </svg>
+        <div class="svg-caption">Schematische voorstelling. Methylering vindt plaats op N3 en N7; N1 blijft onveranderd.</div>
+      </div>
+    </section>
+
+    <!-- MECHANISME -->
+    <section class="full">
+      <h2>Het reactiemechanisme — stap voor stap</h2>
+
+      <div class="step">
+        <h3><span class="step-label">Stap 1</span>Deprotonering door de base</h3>
+        <p>
+          De base (bv. K<sub>2</sub>CO<sub>3</sub>) onttrekt een proton (H<sup>+</sup>) van een N–H-binding van xanthine. Het bindingspaar van N–H blijft volledig op N achter,
+          waardoor een <span class="term">xanthinaat-anion</span> ontstaat met een formele negatieve lading op N.
+        </p>
+        <ul>
+          <li><strong>Verbroken:</strong> N–H</li>
+          <li><strong>Gevormd:</strong> O–H (of N–H) op de base</li>
+          <li><strong>Waarom nodig?</strong> In neutrale xanthine is het vrije elektronenpaar op N gedelokaliseerd richting de carbonylgroepen (amide-achtig). Daardoor is N op zichzelf een zwakke <span class="term">nucleofiel</span>. Na deprotonering is het elektronenpaar veel beschikbaarder — N<sup>−</sup> is een veel sterkere nucleofiel.</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-label">Stap 2</span>Nucleofiele aanval op het methyl-koolstofatoom (S<sub>N</sub>2)</h3>
+        <p>
+          Het vrije elektronenpaar op N<sup>−</sup> valt aan op het methyl-C van CH<sub>3</sub>I, <em>aan de tegenovergestelde kant van het jodide</em>. Tegelijkertijd schuift het
+          bindingspaar van C–I volledig naar I, dat als I<sup>−</sup> vertrekt. Beide gebeurtenissen vinden in <strong>één concerted stap</strong> plaats — er is geen tussenproduct.
+        </p>
+        <ul>
+          <li><strong>Verbroken:</strong> C–I</li>
+          <li><strong>Gevormd:</strong> N–C (nieuwe C–N-binding tussen xanthine en methylgroep)</li>
+          <li><strong>Vertrekkende groep:</strong> I<sup>−</sup> — groot, polariseerbaar en stabiel als anion</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-label">Herhalen</span>Tweede methylering</h3>
+        <p>
+          Stap 1 + 2 worden herhaald op de tweede stikstof (N3 óf N7, afhankelijk van waar de eerste methylering plaatsvond). Het eindproduct is <strong>3,7-dimethylxanthine = theobromine</strong>.
+        </p>
+      </div>
+
+      <div class="legend-row"><span class="key">Nucleofiel</span><span>elektronenrijk deeltje dat een elektronenpaar doneert — hier de gedeprotoneerde N<sup>−</sup>.</span></div>
+      <div class="legend-row"><span class="key">Elektrofiel</span><span>elektronenarm centrum dat een elektronenpaar accepteert — hier het methyl-C (δ+).</span></div>
+      <div class="legend-row"><span class="key">Vertrekkende groep</span><span>atoom of groep die met het bindingspaar vertrekt — hier I<sup>−</sup>.</span></div>
+    </section>
+
+    <!-- POLAIR -->
+    <section>
+      <h2>Polair of radicalair?</h2>
+      <p>
+        Dit is een <strong>polair mechanisme</strong>. Twee kenmerken bewijzen dat:
+      </p>
+      <ol>
+        <li><strong>Polair reagens:</strong> de C–I-binding in CH<sub>3</sub>I is polair door het verschil in elektronegativiteit. C is δ+, I is δ−. De methylkoolstof is dus elektronenarm vóór er iets gebeurt.</li>
+        <li><strong>Vrij elektronenpaar op N:</strong> na deprotonering heeft N een goed beschikbaar elektronenpaar dat kan doneren.</li>
+      </ol>
+      <p>
+        Bindingen breken <strong>heterolytisch</strong> (beide elektronen blijven bij één atoom) en elektronen bewegen in <strong>paren</strong>. Bij een radicaalmechanisme zou je
+        homolytische splitsing en één-elektrons-pijltjes (vishaakjes) zien — vaak getriggerd door UV-licht of een initiator. Dat is hier niet het geval.
+      </p>
+    </section>
+
+    <!-- ENERGIEDIAGRAM -->
+    <section>
+      <h2>Energiediagram: één-staps S<sub>N</sub>2</h2>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 360 200" width="100%" style="max-width: 360px;">
+          <!-- axes -->
+          <line x1="30" y1="20" x2="30" y2="180" stroke="#1a1a1a" stroke-width="1.5"/>
+          <line x1="30" y1="180" x2="340" y2="180" stroke="#1a1a1a" stroke-width="1.5"/>
+          <text x="20" y="20" font-size="9" text-anchor="end">E</text>
+          <text x="340" y="195" font-size="9" text-anchor="end">reactieverloop</text>
+          <!-- curve: reactants high-ish, TS peak, products lower -->
+          <path d="M 40,130 Q 80,128 110,120 Q 150,60 200,40 Q 250,60 290,150 Q 310,158 340,158"
+                fill="none" stroke="#6b2d18" stroke-width="2.5"/>
+          <!-- TS marker -->
+          <line x1="200" y1="40" x2="200" y2="55" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="200" y="33" font-size="9" text-anchor="middle" fill="#6b2d18" font-weight="bold">OT</text>
+          <text x="200" y="65" font-size="8" text-anchor="middle">[N···CH<tspan font-size="6" baseline-shift="sub">3</tspan>···I]<tspan font-size="6" baseline-shift="super">−</tspan></text>
+          <!-- Labels -->
+          <text x="60" y="125" font-size="9">N<tspan font-size="6" baseline-shift="super">−</tspan> + CH<tspan font-size="6" baseline-shift="sub">3</tspan>I</text>
+          <text x="305" y="165" font-size="9">N–CH<tspan font-size="6" baseline-shift="sub">3</tspan> + I<tspan font-size="6" baseline-shift="super">−</tspan></text>
+          <!-- ΔE arrow -->
+          <line x1="320" y1="130" x2="320" y2="158" stroke="#555" stroke-width="1"/>
+          <polygon points="317,158 320,165 323,158" fill="#555"/>
+          <text x="326" y="148" font-size="9" fill="#555">ΔE &lt; 0</text>
+        </svg>
+        <div class="svg-caption">Eén maximum (de overgangstoestand), geen tussenproduct, netto exotherm.</div>
+      </div>
+      <ul>
+        <li><strong>Eén stap, één overgangstoestand (OT).</strong> In de OT is de N–C-binding gedeeltelijk gevormd en C–I gedeeltelijk gebroken. De methyl-C is trigonaal-bipiramidaal.</li>
+        <li><strong>Geen intermediair</strong> — geen putje in de curve.</li>
+        <li><strong>Netto exotherm:</strong> de gevormde C–N-binding (~305 kJ/mol) is sterker dan de verbroken C–I-binding (~240 kJ/mol). I<sup>−</sup> wordt bovendien goed gestabiliseerd in oplossing.</li>
+        <li><strong>Waarom geen S<sub>N</sub>1?</strong> Dat zou een CH<sub>3</sub><sup>+</sup>-intermediair vereisen. Methyl-kationen zijn extreem instabiel (geen hyperconjugatie). Methyl-elektrofielen reageren daarom altijd via S<sub>N</sub>2.</li>
+      </ul>
+    </section>
+
+    <!-- WAAROM N3 EN N7 -->
+    <section>
+      <h2>Waarom juist op N3 en N7?</h2>
+      <p>
+        Xanthine heeft vier mogelijke N–H-posities (N1, N3, N7, N9) met elk een andere <strong>pK<sub>a</sub></strong>. De selectiviteit ontstaat door drie factoren:
+      </p>
+      <ul>
+        <li><strong>Aciditeit van N–H:</strong> N3-H en N7-H zijn relatief gemakkelijk te deprotoneren. De resulterende negatieve lading wordt goed gestabiliseerd door delokalisatie naar naburige C=O- en aromatische systemen.</li>
+        <li><strong>Nucleofiliciteit van N<sup>−</sup>:</strong> juist op N3 en N7 zit na deprotonering een goed beschikbaar elektronenpaar.</li>
+        <li><strong>Sterische bereikbaarheid:</strong> N3 en N7 zijn ruimtelijk goed bereikbaar voor het kleine CH<sub>3</sub>I.</li>
+      </ul>
+      <p>
+        N1-H is een veel zwakker zuur (amide-achtig vastgeklemd tussen twée carbonylgroepen) en wordt onder deze milde condities <em>niet</em> gedeprotoneerd. Daarom blijft N1 in
+        theobromine onveranderd.
+      </p>
+      <p style="font-size: 9pt; font-style: italic; color: #555;">
+        <strong>Nuance:</strong> in de praktijk gebruikt men vaak een geblokkeerd uitgangsmateriaal (bv. 3-methylxanthine) om selectief alleen N7 te methyleren. Industrieel is dit dus
+        gecontroleerder dan "xanthine + 2 CH<sub>3</sub>I → theobromine".
+      </p>
+    </section>
+
+    <!-- VALKUILEN -->
+    <section>
+      <h2>Veelgemaakte fouten bij het tekenen</h2>
+
+      <div class="pitfall">
+        <strong>Fout 1 — Pijltjes de verkeerde kant op.</strong>
+        Krullenpijltjes lopen <em>altijd</em> van elektronenrijk naar elektronenarm. Dus: van het vrije elektronenpaar op N <em>naar</em> de methyl-C, en van de C–I-binding <em>naar</em> I.
+        Niet andersom.
+      </div>
+
+      <div class="pitfall">
+        <strong>Fout 2 — Vergeten te deprotoneren.</strong>
+        Veel leerlingen laten neutrale N–H direct aanvallen op CH<sub>3</sub>I. Dat geeft een positief geladen N–H–CH<sub>3</sub><sup>+</sup>-tussenproduct dat alsnog gedeprotoneerd moet
+        worden — energetisch ongunstiger en mechanistisch onnauwkeurig. Teken eerst de deprotonering, dan pas de S<sub>N</sub>2-aanval.
+      </div>
+
+      <div class="pitfall">
+        <strong>Bonus-valkuil — Teken géén methyl-kation.</strong>
+        Dat zou een S<sub>N</sub>1-mechanisme suggereren. CH<sub>3</sub><sup>+</sup> is extreem instabiel en wordt hier niet gevormd.
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div>Bronnen: Binas tabel 60–62 · scheikundeboek H. organische chemie · pK<sub>a</sub>-waarden uit literatuur</div>
+    <div>Theobromine – C<sub>7</sub>H<sub>8</sub>N<sub>4</sub>O<sub>2</sub> – M = 180,16 g·mol<sup>−1</sup></div>
+  </footer>
+
+</div>
+</body>
+</html>

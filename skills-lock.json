@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "chemistry-tutor": {
+      "source": "szeyu/vibe-study-skills",
+      "sourceType": "github",
+      "skillPath": "skills/chemistry-tutor/SKILL.md",
+      "computedHash": "298af8ef36eceae06115d7dc46dcbb99cd70b9d262c0421f84d5255303b45702"
+    }
+  }
+}
